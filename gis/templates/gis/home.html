@@ -3,25 +3,13 @@
 {% block title %}
     Home
 {% endblock %}
-
+    >
 {% block content %}
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam asperiores consequuntur, distinctio
-        ducimus eligendi exercitationem id ipsum sunt tempora? Earum error, hic! Accusamus blanditiis cumque illum
-        laboriosam reprehenderit tenetur.
-    </div>
-    <div>Aliquam blanditiis doloribus, est et illum in, ipsa iusto modi nemo numquam praesentium quae quam quas quidem
-        saepe sequi sunt! Laudantium nemo saepe vitae voluptatem? Assumenda quae sapiente similique ut?
-    </div>
-    <div>Aliquid asperiores assumenda autem consectetur consequatur corporis culpa dolorum eaque, facilis harum iure
-        minima, nobis quae quas repellat repellendus sapiente sunt, vitae! Blanditiis corporis eligendi maxime quibusdam
-        voluptate? Officiis, quasi?
-    </div>
-    <div>Dolor eligendi in iure laudantium molestias nesciunt sunt velit voluptate? A adipisci architecto beatae
-        consectetur consequuntur cum ducimus eos esse ipsam iste non nostrum obcaecati praesentium, quaerat, saepe
-        temporibus velit.
-    </div>
-    <div>Beatae consequuntur cupiditate ducimus ea eos ex fugit laborum molestiae nisi ratione recusandae reiciendis
-        rerum vel veniam veritatis, vero voluptatibus. Deserunt excepturi laborum mollitia provident repellat
-        reprehenderit sed, suscipit! Ullam.
-    </div>
+    <h1>Home</h1>
+
+    {% for article in articles %}
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.text }}</p>
+    {% endfor %}
+
 {% endblock %}
