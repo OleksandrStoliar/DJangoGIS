@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -15,6 +16,10 @@ def home(request):
         'articles': articles
     }
     return render(request, 'gis/home.html', context)
+
+def show_articles(request, article_id):
+    article = get_object_or_404(Articles, id=article_id)
+    return render(request, 'gis/article.html', {'article': article})
 
 
 def about(request):
