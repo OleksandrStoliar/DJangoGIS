@@ -1,28 +1,40 @@
 {% extends 'gis/base.html' %}
 
 {% block title %}
-    Map
+    ArcGIS online on localhost
 {% endblock %}
-    >
+
+{% block maphead %}
+
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+
+<script src="https://js.arcgis.com/4.10/"></script>
+
+<script>
+require([
+  "esri/Map",
+  "esri/views/MapView",
+  "esri/widgets/Home"
+], function(Map, MapView, Home){
+  var map = new Map({
+    basemap: "streets"
+  });
+  var view = new MapView({
+    container: "viewDiv",  // Reference to the scene div created in step 5
+    map: map,  // Reference to the map object created before the scene
+    zoom: 4,  // Sets zoom level based on level of detail (LOD)
+    center: [30.540364,50.445836]  // Sets center point of view using longitude,latitude
+  });
+  var homeBtn = new Home({
+        view: view
+  });
+   // Add the home button to the top left corner of the view
+   view.ui.add(homeBtn, "top-left");
+});
+</script>
+{% endblock %}
+
 {% block content %}
-    <h3>Map</h3>
-
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque aut consequatur error, explicabo fuga
-        illum iste itaque laudantium minima necessitatibus nihil nostrum, provident quis saepe sed, tempora ullam vel.
-    </div>
-    <div>Aliquid assumenda culpa dolore earum, incidunt, inventore natus possimus quos tempore, tenetur ullam vel
-        voluptatem voluptatum. Autem, dolores error fugit minus nulla vel voluptatibus. Consectetur nobis perferendis
-        reiciendis suscipit tempora!
-    </div>
-    <div>Dolorem eos harum hic sit ullam. A alias asperiores, at autem consequuntur culpa cumque dolore dolores
-        exercitationem labore nobis odio quia quo quod ratione, repellendus sapiente ullam ut vel voluptate.
-    </div>
-    <div>Aliquid iure quia vitae! Ab, aliquid atque hic ipsa ipsam modi nobis odio quaerat, quam qui rerum unde vero.
-        Alias aspernatur cumque distinctio dolore eos error laborum nihil officia veritatis?
-    </div>
-    <div>Animi eligendi exercitationem iste nihil quae repellat voluptas. Autem doloremque ducimus ea esse facilis
-        placeat quis reiciendis soluta. Aspernatur commodi doloremque in iure magnam quasi quod sapiente tempora
-        temporibus voluptatem.
-    </div>
-
+  <div id="viewDiv" style="height: 700px !important"></div>
 {% endblock %}

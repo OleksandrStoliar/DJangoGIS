@@ -30,6 +30,9 @@
     </style>
     <!-- Custom styles for this template-->
     <link href="{% static 'gis/style.css' %}" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  {% block maphead %}{% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -68,8 +71,7 @@
 <main role="main" class="container margin_block">
     {% block content %}{% endblock %}
 </main><!-- /.container -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 
